@@ -1,0 +1,15 @@
+# 혼자 공부하는 머신러닝+딥러닝 (Ch.1~6 ML + Ch.7~10 DL)
+numpy>=1.26,<3
+pandas>=2.1
+matplotlib>=3.8
+scikit-learn>=1.4
+jupyter>=1.0
+jupyterlab>=4.0
+ipykernel>=6.29
+plotly>=6.0
+
+# Ch.7~ (딥러닝 — 필요할 때 주석 해제 후 pip install -r requirements.txt)
+# tensorflow>=2.15
+# torch>=2.2
+# torchvision>=0.17
+# transformers>=4.40
