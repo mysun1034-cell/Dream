@@ -6,10 +6,18 @@
 
 ## 로컬 환경
 
+Windows:
+
 ```powershell
-cd C:\Users\user\Machine-and-deep-learning-study   # 로컬 폴더명 (GitHub: Dream)
-.\.venv\Scripts\Activate.ps1
-jupyter lab
+cd C:\Users\금정산2-PC02\Desktop\Dream
+```
+
+WSL (수업 LLM 실습은 이쪽):
+
+```bash
+cd /mnt/c/Users/금정산2-PC02/Desktop/Dream
+cd llm-api-playground
+source .venv/bin/activate
 ```
 
 ## 디렉터리
@@ -23,6 +31,7 @@ jupyter lab
 | [`ml/`](./ml/) | ML/DL · 혼공 노트북 · 개념 지도 |
 | [`career/`](./career/) | FDSE 로드맵 · 프로필 · SQL 트랙 · **Spring Boot/AI (EDENING)** |
 | [`lms/`](./lms/) | **생성형 AI 과정 습득 커리큘럼** · 42수업 전체 지도 |
+| [`llm-api-playground/`](./llm-api-playground/) | **P3-LLM 실습** · Day1~2 구조화 출력·도구 호출 |
 | [`qa/`](./qa/) | 질문·답변 일지 (`YYYY-MM-DD.md`) |
 
 ## 설치 (한 번)
