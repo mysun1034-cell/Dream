@@ -31,7 +31,7 @@ source .venv/bin/activate
 | [`ml/`](./ml/) | ML/DL · 혼공 노트북 · 개념 지도 |
 | [`career/`](./career/) | FDSE 로드맵 · 프로필 · SQL 트랙 · **Spring Boot/AI (EDENING)** |
 | [`lms/`](./lms/) | **생성형 AI 과정 습득 커리큘럼** · 42수업 전체 지도 |
-| [`llm-api-playground/`](./llm-api-playground/) | **P3-LLM 실습** · Day1~2 구조화 출력·도구 호출 |
+| [`llm-api-playground/`](./llm-api-playground/) | **P3-LLM 실습** · Day1~3 Responses API · [흐름비교 노트북](./llm-api-playground/day03/흐름비교_day1-2-3.ipynb) · [Day3 슬라이드 정리](./llm-api-playground/day03/내용정리.md) |
 | [`qa/`](./qa/) | 질문·답변 일지 (`YYYY-MM-DD.md`) |
 
 ## 설치 (한 번)

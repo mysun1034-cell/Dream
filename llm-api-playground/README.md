@@ -21,7 +21,7 @@
 | Spring AI | ChatClient부터 스트리밍·통합까지 6일 |
 | PyTorch NLP | 텐서·루프 → 텍스트를 숫자로 → RNN → LSTM·GRU |
 | LLM 핵심기술 | 어텐션, 셀프 어텐션, BERT/GPT, 생성 디코딩 |
-| LLM API | 무상태 대화, 구조화 출력, 도구 호출 |
+| LLM API | 무상태 대화, 구조화 출력, 도구 호출, **Day 3 Responses API** |
 
 ## 실행
 
@@ -60,7 +60,20 @@ streamlit run lecture_quiz_app.py
 | `structured.ipynb` | `json_object` → `json_schema`+`strict` → Pydantic `parse` |
 | `tools.ipynb` | 도구 호출 |
 | `day02/tool_chat.py` | 날씨·계산 도구 챗 |
+| [`day03/내용정리.md`](./day03/내용정리.md) | Day 3 슬라이드 86장 정리 — Responses가 서버 저장 객체인 이유, `previous_response_id`는 전송만 줄임, 내장 도구는 토큰으로 청구 |
+| [`day03/흐름비교_day1-2-3.ipynb`](./day03/흐름비교_day1-2-3.ipynb) | 같은 질문을 Day 1 `chat.completions` / Day 3 `responses`로 나란히 실행. 뒤에 `01`~`04` 수업 셀 원문 |
 | `수업정리/` | 강사 코드와 슬라이드 쉽게 풀이 |
+
+## Day 3 · Responses API
+
+2026-08-19. `chat.completions`와 Responses는 이름만 다른 표기가 아니다. Chat 응답은 결과 봉투, Responses 응답은 설정까지 되돌아오는 서버 저장 객체라서 `retrieve`·`delete`가 있다.
+
+```powershell
+cd C:\Users\금정산2-PC02\Desktop\Dream\llm-api-playground
+.\.venv-win\Scripts\python.exe -m jupyter notebook day03/흐름비교_day1-2-3.ipynb
+```
+
+키는 `.env` 또는 `env`. 노트북 첫 셀이 파일을 읽어 `OPENAI_API_KEY`를 넣는다. `temperature`는 오늘 모델에서 400이다.
 
 퀴즈 핵심:
 
