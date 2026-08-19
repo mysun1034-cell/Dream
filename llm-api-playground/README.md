@@ -29,14 +29,14 @@
 
 ```powershell
 cd C:\Users\금정산2-PC02\Desktop\Dream\llm-api-playground
-.\.venv-win\Scripts\python.exe -m streamlit run lecture_quiz_app.py
+.\.venv-win\Scripts\python.exe -m streamlit run day02/lecture_quiz_app.py
 ```
 
 WSL이면 같은 파일에서:
 
 ```bash
 source .venv/bin/activate
-streamlit run lecture_quiz_app.py
+streamlit run day02/lecture_quiz_app.py
 ```
 
 제목 아래 과목 단추 8개가 보여야 한다. 안 보이면 **전체 맵으로**를 누르거나 새로고침한다.
@@ -52,16 +52,21 @@ streamlit run lecture_quiz_app.py
 
 | 파일 | 하는 일 |
 |---|---|
-| `lecture_quiz_app.py` | 그래프 + 단추 + 라디오 + 퀴즈 |
-| `curriculum.py` | LLM 핵심기술 · LLM API |
-| `curriculum_more.py` | Streamlit · ML · DL · 미니 · Spring AI · PyTorch NLP |
-| `curriculum_code.py` / `curriculum_code_more.py` | 항목마다 줄 주석 예제 |
-| `quiz.py` | 터미널 퀴즈 |
-| `structured.ipynb` | `json_object` → `json_schema`+`strict` → Pydantic `parse` |
-| `tools.ipynb` | 도구 호출 |
+| `day02/lecture_quiz_app.py` | 그래프 + 단추 + 라디오 + 퀴즈 |
+| `day02/curriculum.py` | LLM 핵심기술 · LLM API |
+| `day02/curriculum_more.py` | Streamlit · ML · DL · 미니 · Spring AI · PyTorch NLP |
+| `day02/curriculum_code.py` / `curriculum_code_more.py` | 항목마다 줄 주석 예제 |
+| `day02/quiz.py` | 터미널 퀴즈 |
+| `day02/structured.ipynb` | `json_object` → `json_schema`+`strict` → Pydantic `parse` |
+| `day02/tools.ipynb` | 도구 호출 |
 | `day02/tool_chat.py` | 날씨·계산 도구 챗 |
-| [`day03/내용정리.md`](./day03/내용정리.md) | Day 3 슬라이드 86장 정리 — Responses가 서버 저장 객체인 이유, `previous_response_id`는 전송만 줄임, 내장 도구는 토큰으로 청구 |
-| [`day03/흐름비교_day1-2-3.ipynb`](./day03/흐름비교_day1-2-3.ipynb) | 같은 질문을 Day 1 `chat.completions` / Day 3 `responses`로 나란히 실행. 뒤에 `01`~`04` 수업 셀 원문 |
+| [`day03/내용정리.md`](./day03/내용정리.md) | Day 3 슬라이드 86장 정리 |
+| [`day03/흐름비교_day1-2-3.ipynb`](./day03/흐름비교_day1-2-3.ipynb) | Day 1·2·3 같은 질문 비교 + `01`~`04` 수업 셀 |
+| `day03/01_response_api.ipynb` | 첫 호출 · 기억 · store · 키 비교 · 날씨 왕복 · 웹검색 · 코드 해석기 |
+| `day03/02_stream.ipynb` | `create` vs `stream` · 타입 개수 · 첫 글자 시각 |
+| `day03/03_ops.ipynb` | 재시도 · 캐시 · verbosity · reasoning · 방 · llms.txt |
+| `day03/04_other_models.ipynb` | 모델 목록 · 검열 · TTS · 이미지 · 임베딩 |
+| `day03/hello.mp3` · `war.mp3` · `image.png` | TTS·이미지 시연 산출물 |
 | `수업정리/` | 강사 코드와 슬라이드 쉽게 풀이 |
 
 ## Day 3 · Responses API
