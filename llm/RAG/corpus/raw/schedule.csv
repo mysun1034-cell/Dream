@@ -1,0 +1,21 @@
+날짜,교과목,수업명
+2026-05-18,Python 데이터분석,Git/GitHub 학습 기록
+2026-05-19,Python 데이터분석,uv numpy pandas 기초
+2026-05-20,Python 데이터분석,EDA matplotlib plotly
+2026-05-21,Python 데이터분석,Streamlit 입문
+2026-05-22,Python 데이터분석,Streamlit 심화
+2026-05-26,머신러닝,지도학습 파이프라인 k-NN
+2026-05-27,머신러닝,회귀 특성공학 규제
+2026-05-28,머신러닝,분류 평가지표
+2026-05-29,머신러닝,트리 앙상블 CV
+2026-06-01,머신러닝,군집 K-Means PCA
+2026-07-02,Spring AI,ChatClient Gemini
+2026-07-03,Spring AI,Structured Output
+2026-07-06,Spring AI,Advisor Chat Memory
+2026-07-07,Spring AI,Multimodal
+2026-07-08,Spring AI,Tool Calling MCP
+2026-07-09,Spring AI,Streaming 통합
+2026-08-14,LLM API,멀티턴 챗봇
+2026-08-18,LLM API,구조화 출력 도구 호출
+2026-08-19,LLM API,Responses API
+2026-08-20,LLM 데이터 엔지니어링,문서 파싱 Day 1

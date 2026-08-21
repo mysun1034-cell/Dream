@@ -1,0 +1,91 @@
+[
+  {
+    "file": "guide-day-prev.md",
+    "text": "guide-day-prev.txt",
+    "source": "전일 학습자 가이드 (2026-08-18 구조화 출력과 도구 호출)",
+    "license": "수업 자료",
+    "extractor": "plain-utf8",
+    "chars": 3735,
+    "page_chars": [
+      3735
+    ],
+    "collected": "2026-08-20",
+    "tokens": 1811,
+    "id": "guide-day-prev",
+    "text_file": "guide-day-prev.txt",
+    "type": "md"
+  },
+  {
+    "file": "paper-wheat-dss.pdf",
+    "text": "paper-wheat-dss.txt",
+    "source": "한국농공학회논문집 66(4) 2024, 김솔희 외. 수업 내 인용.",
+    "license": "수업 내 인용",
+    "extractor": "pymupdf",
+    "chars": 23073,
+    "page_chars": [
+      3449,
+      3155,
+      1393,
+      1628,
+      1670,
+      2547,
+      1088,
+      1060,
+      3573,
+      3492
+    ],
+    "collected": "2026-08-20",
+    "tokens": 11073,
+    "id": "paper-wheat-dss",
+    "text_file": "paper-wheat-dss.txt",
+    "type": "pdf"
+  },
+  {
+    "file": "pipa.md",
+    "text": "pipa.txt",
+    "source": "개인정보 보호법 전문 (법제처 / 위키문헌)",
+    "license": "저작권법 제7조 자유이용",
+    "extractor": "plain-utf8",
+    "chars": 55328,
+    "page_chars": [
+      55328
+    ],
+    "collected": "2026-08-20",
+    "tokens": 32147,
+    "id": "pipa",
+    "text_file": "pipa.txt",
+    "type": "md"
+  },
+  {
+    "file": "schedule.csv",
+    "text": "schedule.txt",
+    "source": "생성형 AI 과정 시간표 배포판",
+    "license": "과정 내부 배포",
+    "extractor": "pandas/cp949",
+    "chars": 1034,
+    "page_chars": [
+      1034
+    ],
+    "collected": "2026-08-20",
+    "tokens": 585,
+    "id": "schedule",
+    "text_file": "schedule.txt",
+    "type": "csv"
+  },
+  {
+    "file": "wiki-llm.html",
+    "text": "wiki-llm.txt",
+    "source": "https://ko.wikipedia.org/wiki/대형_언어_모델",
+    "license": "CC BY-SA 4.0",
+    "extractor": "beautifulsoup4+lxml+markdownify",
+    "chars": 28522,
+    "page_chars": [
+      28522
+    ],
+    "collected": "2026-08-20",
+    "tokens": 12874,
+    "id": "wiki-llm",
+    "text_file": "wiki-llm.txt",
+    "type": "md"
+  }
+]
