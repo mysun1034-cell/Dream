@@ -32,6 +32,8 @@ source .venv/bin/activate
 | [`career/`](./career/) | FDSE 로드맵 · 프로필 · SQL 트랙 · **Spring Boot/AI (EDENING)** |
 | [`lms/`](./lms/) | **생성형 AI 과정 습득 커리큘럼** · 42수업 전체 지도 |
 | [`llm-api-playground/`](./llm-api-playground/) | **P3-LLM 실습** · Day1~3 Responses API · [흐름비교 노트북](./llm-api-playground/day03/흐름비교_day1-2-3.ipynb) · [Day3 슬라이드 정리](./llm-api-playground/day03/내용정리.md) |
+| [`llm/RAG/`](./llm/RAG/) | **LLM 데이터 엔지니어링** · 코퍼스·청크·임베딩·Chroma · Day5 골든셋/hit-rate/SFT |
+| [`llm/c3-slm/`](./llm/c3-slm/) | **로컬 sLM 추론 실습** (WSL·uv·PyTorch) · Qwen3-0.6B / Mi:dm 2.0 Mini GPU 로딩·생성·Thinking 모드 · [실습 보고서](./llm/c3-slm/REPORT.md) |
 | [`qa/`](./qa/) | 질문·답변 일지 (`YYYY-MM-DD.md`) |
 
 ## 설치 (한 번)
