@@ -4,6 +4,32 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import AuthGate from "../../AuthGate";
 
+const PGLITE_CDN_URL = "https://cdn.jsdelivr.net/npm/@electric-sql/pglite@0.5.8/dist/index.js";
+
+declare global {
+  interface Window {
+    PGlite?: new () => PgliteDb;
+  }
+}
+
+// Turbopack이 번들하면(프로덕션 빌드) pglite 내부 WASM 로더가 깨진다 — bare import든 동적 문자열 import든
+// 어쨌든 Turbopack의 모듈 로더를 거치기 때문이다. <script type="module"> 태그로 브라우저 네이티브 import를
+// 그대로 쓰게 해서 번들러를 완전히 건너뛴다(Pyodide를 CDN 스크립트로 불러오는 것과 같은 이유).
+let pgliteScriptPromise: Promise<void> | null = null;
+function loadPgliteModule(): Promise<void> {
+  if (window.PGlite) return Promise.resolve();
+  if (pgliteScriptPromise) return pgliteScriptPromise;
+  pgliteScriptPromise = new Promise((resolve, reject) => {
+    const el = document.createElement("script");
+    el.type = "module";
+    el.textContent = `import { PGlite } from "${PGLITE_CDN_URL}"; window.PGlite = PGlite; window.dispatchEvent(new Event("pglite-ready"));`;
+    window.addEventListener("pglite-ready", () => resolve(), { once: true });
+    el.onerror = () => reject(new Error("pglite 스크립트를 불러오지 못했습니다."));
+    document.head.appendChild(el);
+  });
+  return pgliteScriptPromise;
+}
+
 type Problem = { id: string; week: string; text: string };
 
 // 보드의 SQL 트랙(1~4주차)과 같은 순서로 두었다. 정답은 여기 없다 — 직접 풀어야 하는 연습장이다.
@@ -82,14 +108,16 @@ function SqlPractice() {
     setStatus("loading");
     setMessage(null);
     try {
-      const { PGlite } = await import("@electric-sql/pglite");
-      const db = new PGlite() as unknown as PgliteDb;
+      await loadPgliteModule();
+      if (!window.PGlite) throw new Error("pglite를 찾지 못했습니다.");
+      const db = new window.PGlite();
       await db.exec(SEED_SQL);
       dbRef.current = db;
       setStatus("ready");
     } catch (e) {
       setStatus("error");
       setMessage(e instanceof Error ? e.message : String(e));
+      console.error("pglite 로딩 실패:", e);
     }
   }
 
