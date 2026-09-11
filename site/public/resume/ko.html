@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>html,body{margin:0}</style>
+<title>한정욱 DS 지원 이력서</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --ground:#F1F4F8; --surface:#FFFFFF;
+    --band:#0E2440; --band-edge:#2E5E97; --band-text:#F3F7FC; --band-soft:#A7BAD3; --band-accent:#9CC3EF;
+    --ink:#111B2B; --ink-soft:#495871; --ink-faint:#8190A6;
+    --line:#DAE1EA; --track:#E2E8F0;
+    --accent:#1D4577; --accent-soft:#E4EBF4; --steel:#0E2440;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#0A111C; --surface:#101A28;
+      --band:#0B1D34; --band-edge:#4A80C0; --band-text:#EEF3FA; --band-soft:#92A7C2; --band-accent:#9CC3EF;
+      --ink:#E5ECF6; --ink-soft:#A1B0C6; --ink-faint:#6A7A92;
+      --line:#1F2D42; --track:#1C293C;
+      --accent:#86ACDD; --accent-soft:#16263D; --steel:#86ACDD;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0A111C; --surface:#101A28;
+    --band:#0B1D34; --band-edge:#4A80C0; --band-text:#EEF3FA; --band-soft:#92A7C2; --band-accent:#9CC3EF;
+    --ink:#E5ECF6; --ink-soft:#A1B0C6; --ink-faint:#6A7A92;
+    --line:#1F2D42; --track:#1C293C;
+    --accent:#86ACDD; --accent-soft:#16263D; --steel:#86ACDD;
+  }
+
+  *{box-sizing:border-box;}
+  body{background:var(--ground);font-family:'Noto Sans KR',-apple-system,'Malgun Gothic',sans-serif;color:var(--ink);}
+  .doc{max-width:940px;margin:0 auto;background:var(--surface);border:1px solid var(--line);}
+
+  .band{
+    background:var(--band);color:var(--band-text);
+    padding:30px 40px;display:flex;flex-wrap:wrap;gap:24px;
+    align-items:center;justify-content:space-between;
+    border-bottom:4px solid var(--band-edge);
+  }
+  .band-left{display:flex;align-items:center;gap:22px;min-width:0;}
+  .monogram{
+    width:96px;height:96px;flex:none;display:grid;place-items:center;
+    background:linear-gradient(160deg,#21446F,#0B1C33);
+    border:1px solid rgba(255,255,255,0.18);
+    font-family:'Noto Serif KR',Georgia,serif;
+    font-size:2.1rem;font-weight:700;color:var(--band-text);
+  }
+  .band h1{
+    font-family:'Noto Serif KR',Georgia,serif;
+    font-size:2.3rem;font-weight:700;letter-spacing:0.06em;
+    margin:0 0 6px;text-wrap:balance;
+  }
+  .band .target{font-size:1.02rem;color:var(--band-accent);font-weight:700;margin:0 0 5px;}
+  .band .tagline{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--band-soft);margin:0;max-width:44ch;line-height:1.55;}
+  .band-contact{display:flex;flex-direction:column;gap:7px;font-family:'IBM Plex Mono',monospace;font-size:0.76rem;}
+  .band-contact a,.band-contact span{color:var(--band-soft);text-decoration:none;display:flex;align-items:center;gap:9px;}
+  .band-contact a:hover{color:var(--band-accent);}
+  .band-contact a:focus-visible{outline:2px solid var(--band-accent);outline-offset:3px;}
+  .ic{width:13px;height:13px;flex:none;opacity:0.85;}
+
+  .body{display:grid;grid-template-columns:270px 1fr;align-items:start;}
+  .side{padding:28px 24px 34px 40px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:26px;}
+  .main{padding:28px 40px 34px 30px;display:flex;flex-direction:column;gap:26px;}
+  @media (max-width:800px){
+    .body{grid-template-columns:1fr;}
+    .side{border-right:none;border-bottom:1px solid var(--line);padding:26px 24px;}
+    .main{padding:26px 24px;}
+    .band{padding:24px;}
+  }
+
+  h2.sec{
+    font-family:'Noto Serif KR',Georgia,serif;
+    font-size:0.95rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--ink);margin:0 0 13px;padding-bottom:7px;border-bottom:2px solid var(--steel);
+  }
+  .side h2.sec{font-size:0.85rem;border-bottom-width:1px;}
+
+  .skill{margin-bottom:13px;}
+  .skill:last-child{margin-bottom:0;}
+  .skill-name{display:block;font-size:0.79rem;font-weight:500;color:var(--ink);margin-bottom:6px;line-height:1.35;}
+  .bar{display:flex;gap:3px;}
+  .bar i{display:block;height:6px;flex:1;background:var(--track);border-radius:1px;}
+  .bar i.on{background:var(--accent);}
+
+  .pills{display:flex;flex-wrap:wrap;gap:6px;}
+  .pill{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;background:var(--accent-soft);color:var(--accent);padding:5px 9px;border-radius:2px;white-space:nowrap;}
+
+  .langs{display:flex;gap:14px;justify-content:space-between;}
+  .lang{text-align:center;flex:1;}
+  .donut{width:100%;max-width:62px;height:auto;display:block;margin:0 auto 6px;}
+  .lang-name{font-size:0.73rem;font-weight:500;color:var(--ink);display:block;line-height:1.3;}
+  .lang-note{font-family:'IBM Plex Mono',monospace;font-size:0.63rem;color:var(--ink-faint);display:block;margin-top:2px;}
+
+  .fact{margin-bottom:11px;}
+  .fact:last-child{margin-bottom:0;}
+  .fact-title{font-size:0.79rem;font-weight:700;color:var(--ink);display:block;line-height:1.35;}
+  .fact-meta{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--ink-faint);display:block;margin-top:2px;}
+
+  .summary{font-size:0.88rem;line-height:1.75;color:var(--ink-soft);margin:0;}
+  .summary b{color:var(--ink);font-weight:700;}
+
+  .job{margin-bottom:22px;}
+  .job:last-child{margin-bottom:0;}
+  .job-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 16px;}
+  .job-head h3{font-size:1rem;font-weight:700;margin:0;color:var(--ink);}
+  .job-when{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--ink-faint);white-space:nowrap;}
+  .job-sub{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 16px;margin:3px 0 10px;}
+  .job-org{font-size:0.83rem;color:var(--accent);font-weight:700;}
+  .job-role{font-family:'IBM Plex Mono',monospace;font-size:0.71rem;color:var(--ink-faint);}
+  ol.duties{margin:0;padding-left:1.35em;display:flex;flex-direction:column;gap:7px;}
+  ol.duties li{font-size:0.85rem;line-height:1.68;color:var(--ink);padding-left:0.15em;}
+  ol.duties li::marker{color:var(--accent);font-family:'IBM Plex Mono',monospace;font-size:0.8rem;}
+
+  .metrics{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
+  .metric{
+    font-family:'IBM Plex Mono',monospace;font-size:0.69rem;
+    border:1px solid var(--line);border-left:2px solid var(--accent);
+    color:var(--ink-soft);padding:4px 9px;white-space:nowrap;
+  }
+  .metric b{color:var(--ink);font-weight:600;}
+
+  .edu{margin-bottom:14px;}
+  .edu:last-child{margin-bottom:0;}
+  .edu-note{font-size:0.82rem;color:var(--ink-soft);line-height:1.65;margin:5px 0 0;}
+
+  footer{
+    padding:14px 40px 20px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+    font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--ink-faint);
+  }
+
+  @media print{
+    body{background:#fff;}
+    .doc{border:none;max-width:none;}
+    .job,.edu{break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+
+<div class="doc">
+
+  <header class="band">
+    <div class="band-left">
+      <div class="monogram">한</div>
+      <div>
+        <h1>한 정 욱</h1>
+        <p class="target">제품 오너 · 백엔드 엔지니어</p>
+        <p class="tagline">규제 도메인 배포 · 해외 소싱·수입 물류</p>
+      </div>
+    </div>
+    <div class="band-contact">
+      <a href="mailto:mysun1034@gmail.com">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg>
+        mysun1034@gmail.com
+      </a>
+      <span>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1116 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        부산 · 서울
+      </span>
+      <a href="https://github.com/mysun1034-cell" target="_blank" rel="noopener">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20 15 15 0 010-20z"/></svg>
+        github.com/mysun1034-cell
+      </a>
+    </div>
+  </header>
+
+  <div class="body">
+
+    <aside class="side">
+
+      <section>
+        <h2 class="sec">Core Skills</h2>
+        <div class="skill">
+          <span class="skill-name">규제 도메인 배포</span>
+          <div class="bar" role="img" aria-label="10점 만점에 9점"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+        </div>
+        <div class="skill">
+          <span class="skill-name">백엔드·API 아키텍처</span>
+          <div class="bar" role="img" aria-label="10점 만점에 8점"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+        </div>
+        <div class="skill">
+          <span class="skill-name">이해관계자·공급자 협상</span>
+          <div class="bar" role="img" aria-label="10점 만점에 9점"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+        </div>
+        <div class="skill">
+          <span class="skill-name">수입 물류·통관 조율</span>
+          <div class="bar" role="img" aria-label="10점 만점에 8점"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+        </div>
+        <div class="skill">
+          <span class="skill-name">비정형 도메인 요구사항 구조화</span>
+          <div class="bar" role="img" aria-label="10점 만점에 8점"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+        </div>
+        <div class="skill">
+          <span class="skill-name">데이터 통합·분석</span>
+          <div class="bar" role="img" aria-label="10점 만점에 7점"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="skill">
+          <span class="skill-name">LLM·RAG 연동</span>
+          <div class="bar" role="img" aria-label="10점 만점에 7점"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="sec">Strengths</h2>
+        <div class="pills">
+          <span class="pill">모호성 내성</span>
+          <span class="pill">끝까지 책임</span>
+          <span class="pill">규제 정합성</span>
+          <span class="pill">다문화 커뮤니케이션</span>
+          <span class="pill">기록 규율</span>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="sec">Languages</h2>
+        <div class="langs">
+          <div class="lang">
+            <svg class="donut" viewBox="0 0 64 64" role="img" aria-label="한국어 모국어">
+              <circle cx="32" cy="32" r="26" fill="none" stroke="var(--track)" stroke-width="7"/>
+              <circle cx="32" cy="32" r="26" fill="none" stroke="var(--accent)" stroke-width="7" stroke-dasharray="163.4 999" transform="rotate(-90 32 32)"/>
+            </svg>
+            <span class="lang-name">한국어</span>
+            <span class="lang-note">모국어</span>
+          </div>
+          <div class="lang">
+            <svg class="donut" viewBox="0 0 64 64" role="img" aria-label="영어 업무 능통">
+              <circle cx="32" cy="32" r="26" fill="none" stroke="var(--track)" stroke-width="7"/>
+              <circle cx="32" cy="32" r="26" fill="none" stroke="var(--accent)" stroke-width="7" stroke-dasharray="152 999" transform="rotate(-90 32 32)"/>
+            </svg>
+            <span class="lang-name">영어</span>
+            <span class="lang-note">TOEIC 980</span>
+          </div>
+          <div class="lang">
+            <svg class="donut" viewBox="0 0 64 64" role="img" aria-label="스페인어 기초">
+              <circle cx="32" cy="32" r="26" fill="none" stroke="var(--track)" stroke-width="7"/>
+              <circle cx="32" cy="32" r="26" fill="none" stroke="var(--accent)" stroke-width="7" stroke-dasharray="41 999" transform="rotate(-90 32 32)"/>
+            </svg>
+            <span class="lang-name">스페인어</span>
+            <span class="lang-note">기초</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="sec">Certifications</h2>
+        <div class="fact">
+          <span class="fact-title">항공영어구술능력증명 5급</span>
+          <span class="fact-meta">ICAO Level 5 (Extended)</span>
+        </div>
+        <div class="fact">
+          <span class="fact-title">항공무선통신사</span>
+          <span class="fact-meta">국가전문자격</span>
+        </div>
+        <div class="fact">
+          <span class="fact-title">TOEIC 980 / 990</span>
+          <span class="fact-meta">LC 495 · RC 485 · 2024.09</span>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="sec">해외·복무 이력</h2>
+        <div class="fact">
+          <span class="fact-title">미국 플로리다 샌포드</span>
+          <span class="fact-meta">Acron Aviation Academy · 2025.10 – 2026.03</span>
+        </div>
+        <div class="fact">
+          <span class="fact-title">필리핀</span>
+          <span class="fact-meta">St. Lino Science High School · 2013 – 2018</span>
+        </div>
+        <div class="fact">
+          <span class="fact-title">대한민국 공군</span>
+          <span class="fact-meta">행정병 · 만기 전역</span>
+        </div>
+      </section>
+
+    </aside>
+
+    <main class="main">
+
+      <section>
+        <h2 class="sec">Professional Summary</h2>
+        <p class="summary">해외 소싱·수입 물류 실무에서 출발해 프로덕션 소프트웨어를 만드는 데까지 온 스타트업 창업멤버로, <b>같은 주에 코드를 쓰고, 공급자와 협상하고, 규제 요건을 동작하는 시스템으로 옮기는 융합형 실행자</b>입니다. 장기요양보험 ERP와 아동 영어학습 플랫폼의 백엔드를 직접 설계·구축하면서 각 제품이 지켜야 할 법규 — 장기요양 법정 수가, 만 14세 미만 법정대리인 동의, AI 데이터 보존 제한 — 를 공부해 설계에 반영했고, 현재 OpenAI와 Zero Data Retention을 협의하고 있습니다. 필리핀에서 5년간 중·고등학교를 다녔고, 제조사·포워딩사·세관·택배사와 직접 소통하며 수입 물류 전 과정을 조율했습니다.</p>
+      </section>
+
+      <section>
+        <h2 class="sec">Work Experience</h2>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>제품 오너 · 백엔드 엔지니어</h3>
+            <span class="job-when">2026.07 – 현재</span>
+          </div>
+          <div class="job-sub">
+            <span class="job-org">EDENING — 아동 AI 영어학습 플랫폼</span>
+            <span class="job-role">배포·운영 준비 단계</span>
+          </div>
+          <ol class="duties">
+            <li>제품 정의부터 실배포까지의 경로를 소유합니다 — 학습 구조 설계, 요구사항, API 계약, 백엔드 구현, 그리고 실제 아동이 쓰기 전에 반드시 통과해야 하는 법적 게이트까지.</li>
+            <li>Spring Boot 백엔드를 구축했습니다. REST 컨트롤러 92개, OpenAPI 계약 25,660줄 규모이며, 학습 세션·진도·완료 상태를 서버에서 판정해 중복 제출과 학습 순서 우회를 차단하는 로직을 설계·구현했습니다.</li>
+            <li>초기에는 백엔드를 맡았으나 다른 엔지니어가 타 업무로 이동하면서 <b>프론트엔드·콘텐츠 저작·커리큘럼 구조 설계까지 흡수</b>했습니다. 역할 분담이 무너진 자리를 남기지 않고 메웠습니다.</li>
+            <li>OpenAI 직접 DPA가 국내에서 셀프서브로 불가함을 확인하고, 아동 음성 파이프라인 전체를 Azure Speech·Azure OpenAI로 재설계했습니다. 선호가 아니라 규제가 강제한 공급자·아키텍처 결정이었습니다.</li>
+            <li>만 14세 미만에게 LLM 기능을 개방하기 위한 선행조건으로 OpenAI Zero Data Retention 승인을 미팅·이메일로 직접 협의하고 있습니다.</li>
+            <li>개인정보처리방침·이용약관·환불정책·청소년보호정책 초안과 만 14세 법정대리인 동의 요건서를 직접 작성했고, 외부 법무 질의와 교육청 질의를 CEO 승인 게이트 7건으로 관리했습니다.</li>
+            <li>근거를 명시한 결정 기록 561건을 유지해 2인 팀과 AI 코딩 에이전트가 함께 일하는 환경의 단일 진실로 삼았습니다.</li>
+          </ol>
+          <div class="metrics">
+            <span class="metric"><b>92</b> 컨트롤러</span>
+            <span class="metric"><b>961</b> 테스트 파일</span>
+            <span class="metric"><b>25,660</b>줄 API 계약</span>
+            <span class="metric"><b>561</b> 결정 기록</span>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>도메인 분석 · 백엔드 엔지니어</h3>
+            <span class="job-when">2026.05 – 현재</span>
+          </div>
+          <div class="job-sub">
+            <span class="job-org">EdenCare — 장기요양보험 통합 ERP</span>
+            <span class="job-role">MVP · 사업화 준비</span>
+          </div>
+          <ol class="duties">
+            <li>기존 ERP 5사의 운영 흐름을 역설계한 뒤, 수급자·직원·방문·청구·급여·회계에 걸친 통합 요구사항으로 종합하고 단계별 개발 범위로 정리했습니다.</li>
+            <li>커밋 1,059건 중 99%를 단독 작성했습니다. FastAPI 라우터 85개, SQLAlchemy 모델 75개, 서비스 모듈 115개 이상이며, 모든 쿼리가 기관 단위로 스코핑되는 멀티테넌트 구조로 기관 간 데이터 누출을 차단했습니다.</li>
+            <li>법정 청구 계산을 규정 문언 그대로 구현했습니다 — 청구심사고시 60128호의 원 단위 사사오입 포함 — 그리고 <b>출처 없는 법정 수치는 배포하지 않는다</b>는 규율을 상시 적용했습니다.</li>
+            <li>회귀 테스트를 1,437건까지 확장하고 로컬·CI 검증을 일치시켰으며, 결함 265건을 요약이 아니라 개별 번호 단위로 추적해 종결했습니다.</li>
+            <li>이 프로젝트에서 만든 결정로그·검증게이트·결함 레지스트리 체계를 EDENING 팀에 이식해, 두 제품이 같은 엔지니어링 규율 위에서 돌아가게 했습니다.</li>
+          </ol>
+          <div class="metrics">
+            <span class="metric"><b>85</b> API 모듈</span>
+            <span class="metric"><b>1,437</b> 테스트</span>
+            <span class="metric"><b>265</b> 결함 추적</span>
+            <span class="metric"><b>99%</b> 단독 작성</span>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>창업멤버 · 등기이사</h3>
+            <span class="job-when">2022 – 현재</span>
+          </div>
+          <div class="job-sub">
+            <span class="job-org">주식회사 시드닝</span>
+            <span class="job-role">해외 소싱 · 수입 물류 · 인증 · 지분 10%</span>
+          </div>
+          <ol class="duties">
+            <li>중국 제조사와의 단독 창구로서 가격·거래조건·A/S 의무·판매 권한을 영어로 직접 협상했습니다.</li>
+            <li>제조사 출고부터 국내 시드닝 공장 입고까지 모든 물류 운송 과정을 제조사·포워딩사·세관·택배사와 직접 소통하며 조율해, 초기 스마트 미러·스마트 테이블·인터랙티브 시스템 구축을 지원했습니다.</li>
+            <li>KC 인증(전기안전·전자파)을 처음부터 끝까지 담당해 수입 제품의 국내 진입 규제 경로를 확보했습니다.</li>
+            <li>인터랙티브 시스템 업계 동향과 경쟁 제품을 조사해 어떤 제품군을 소싱·도입할지 판단하는 근거로 삼았습니다.</li>
+          </ol>
+        </article>
+      </section>
+
+      <section>
+        <h2 class="sec">Training &amp; Instruction</h2>
+        <article class="job">
+          <div class="job-head">
+            <h3>FTD 조교</h3>
+            <span class="job-when">2024 – 2025</span>
+          </div>
+          <div class="job-sub">
+            <span class="job-org">한국항공대학교 비행교육원</span>
+            <span class="job-role">수업 보조</span>
+          </div>
+          <ol class="duties">
+            <li>비행 수업에서 비행훈련장치(FTD) 조교로 수업 진행을 보조했습니다.</li>
+            <li>같은 기간 시드닝 업무, 영어 학습, 비행훈련 준비를 병행했습니다.</li>
+          </ol>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>영어 강사 · 과외</h3>
+            <span class="job-when">2019 – 2024 · 3년 2개월</span>
+          </div>
+          <div class="job-sub">
+            <span class="job-org">인사이트 아카데미 · 개인 과외</span>
+            <span class="job-role">부산</span>
+          </div>
+          <ol class="duties">
+            <li>초등학생 대상 주제별 토론 수업과 라이팅 수업을 전부 영어로 진행했고, 강의와 함께 학원 행정 업무를 병행했습니다.</li>
+            <li>중고등학생과 성인을 대상으로 회화·문법·시험 대비를 지도했으며, 담당 과외 학생 3명 전원이 토익 900점대 후반에 도달했습니다.</li>
+          </ol>
+        </article>
+      </section>
+
+      <section>
+        <h2 class="sec">Education</h2>
+        <div class="edu">
+          <div class="job-head">
+            <h3>한국항공대학교</h3>
+            <span class="job-when">2019 – 2027.08 졸업 예정</span>
+          </div>
+          <div class="job-sub">
+            <span class="job-org">항공운항학과 · 4학년 재학</span>
+            <span class="job-role">학점 3.7 / 4.5</span>
+          </div>
+        </div>
+        <div class="edu">
+          <div class="job-head">
+            <h3>생성형 AI 기반 기업솔루션 개발 실무</h3>
+            <span class="job-when">2026.04 – 2026.10</span>
+          </div>
+          <div class="job-sub">
+            <span class="job-org">부산정보산업진흥원 주관 · 부산벤처기업협회 운영</span>
+            <span class="job-role">수강 중</span>
+          </div>
+          <p class="edu-note">Python·SQL과 데이터 분석, LLM API 연동, RAG·sLLM 기반 서비스 구현, Spring AI 백엔드를 거쳐 팀 단위 기업솔루션 구축으로 마무리하는 과정입니다. 팀 프로젝트에서는 반려동물 피부 이미지 분석 보조 서비스의 화면 계층과 모델 추론 연동을 담당했습니다.</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer>
+    <span>한정욱</span>
+    <span>최종 수정 2026-09-10</span>
+  </footer>
+</div>
+
+</body>
+</html>

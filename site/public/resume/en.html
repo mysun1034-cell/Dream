@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>html,body{margin:0}</style>
+<title>Han Jungwook Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --ground:#F1F4F8; --surface:#FFFFFF;
+    --band:#0E2440; --band-edge:#2E5E97; --band-text:#F3F7FC; --band-soft:#A7BAD3; --band-accent:#9CC3EF;
+    --ink:#111B2B; --ink-soft:#495871; --ink-faint:#8190A6;
+    --line:#DAE1EA; --track:#E2E8F0;
+    --accent:#1D4577; --accent-soft:#E4EBF4; --steel:#0E2440;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#0A111C; --surface:#101A28;
+      --band:#0B1D34; --band-edge:#4A80C0; --band-text:#EEF3FA; --band-soft:#92A7C2; --band-accent:#9CC3EF;
+      --ink:#E5ECF6; --ink-soft:#A1B0C6; --ink-faint:#6A7A92;
+      --line:#1F2D42; --track:#1C293C;
+      --accent:#86ACDD; --accent-soft:#16263D; --steel:#86ACDD;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0A111C; --surface:#101A28;
+    --band:#0B1D34; --band-edge:#4A80C0; --band-text:#EEF3FA; --band-soft:#92A7C2; --band-accent:#9CC3EF;
+    --ink:#E5ECF6; --ink-soft:#A1B0C6; --ink-faint:#6A7A92;
+    --line:#1F2D42; --track:#1C293C;
+    --accent:#86ACDD; --accent-soft:#16263D; --steel:#86ACDD;
+  }
+
+  *{box-sizing:border-box;}
+  body{background:var(--ground);font-family:'Noto Sans KR',-apple-system,'Malgun Gothic',sans-serif;color:var(--ink);}
+  .doc{max-width:940px;margin:0 auto;background:var(--surface);border:1px solid var(--line);}
+
+  .band{
+    background:var(--band);color:var(--band-text);
+    padding:30px 40px;display:flex;flex-wrap:wrap;gap:24px;
+    align-items:center;justify-content:space-between;
+    border-bottom:4px solid var(--band-edge);
+  }
+  .band-left{display:flex;align-items:center;gap:22px;min-width:0;}
+  .monogram{
+    width:96px;height:96px;flex:none;display:grid;place-items:center;
+    background:linear-gradient(160deg,#21446F,#0B1C33);
+    border:1px solid rgba(255,255,255,0.18);
+    font-family:'Noto Serif KR',Georgia,serif;
+    font-size:2rem;font-weight:700;color:var(--band-text);letter-spacing:0.04em;
+  }
+  .band h1{
+    font-family:'Noto Serif KR',Georgia,serif;
+    font-size:2.3rem;font-weight:700;letter-spacing:0.03em;
+    margin:0 0 6px;text-wrap:balance;
+  }
+  .band .target{font-size:1.02rem;color:var(--band-accent);font-weight:700;margin:0 0 5px;letter-spacing:0.01em;}
+  .band .tagline{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--band-soft);margin:0;letter-spacing:0.02em;max-width:44ch;line-height:1.55;}
+  .band-contact{display:flex;flex-direction:column;gap:7px;font-family:'IBM Plex Mono',monospace;font-size:0.76rem;}
+  .band-contact a,.band-contact span{color:var(--band-soft);text-decoration:none;display:flex;align-items:center;gap:9px;}
+  .band-contact a:hover{color:var(--band-accent);}
+  .band-contact a:focus-visible{outline:2px solid var(--band-accent);outline-offset:3px;}
+  .ic{width:13px;height:13px;flex:none;opacity:0.85;}
+
+  .body{display:grid;grid-template-columns:270px 1fr;align-items:start;}
+  .side{padding:28px 24px 34px 40px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:26px;}
+  .main{padding:28px 40px 34px 30px;display:flex;flex-direction:column;gap:26px;}
+  @media (max-width:800px){
+    .body{grid-template-columns:1fr;}
+    .side{border-right:none;border-bottom:1px solid var(--line);padding:26px 24px;}
+    .main{padding:26px 24px;}
+    .band{padding:24px;}
+  }
+
+  h2.sec{
+    font-family:'Noto Serif KR',Georgia,serif;
+    font-size:0.95rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--ink);margin:0 0 13px;padding-bottom:7px;border-bottom:2px solid var(--steel);
+  }
+  .side h2.sec{font-size:0.85rem;border-bottom-width:1px;}
+
+  .skill{margin-bottom:13px;}
+  .skill:last-child{margin-bottom:0;}
+  .skill-name{display:block;font-size:0.79rem;font-weight:500;color:var(--ink);margin-bottom:6px;line-height:1.35;}
+  .bar{display:flex;gap:3px;}
+  .bar i{display:block;height:6px;flex:1;background:var(--track);border-radius:1px;}
+  .bar i.on{background:var(--accent);}
+
+  .pills{display:flex;flex-wrap:wrap;gap:6px;}
+  .pill{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;background:var(--accent-soft);color:var(--accent);padding:5px 9px;border-radius:2px;white-space:nowrap;}
+
+  .langs{display:flex;gap:14px;justify-content:space-between;}
+  .lang{text-align:center;flex:1;}
+  .donut{width:100%;max-width:62px;height:auto;display:block;margin:0 auto 6px;}
+  .lang-name{font-size:0.73rem;font-weight:500;color:var(--ink);display:block;line-height:1.3;}
+  .lang-note{font-family:'IBM Plex Mono',monospace;font-size:0.63rem;color:var(--ink-faint);display:block;margin-top:2px;}
+
+  .fact{margin-bottom:11px;}
+  .fact:last-child{margin-bottom:0;}
+  .fact-title{font-size:0.79rem;font-weight:700;color:var(--ink);display:block;line-height:1.35;}
+  .fact-meta{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--ink-faint);display:block;margin-top:2px;}
+
+  .summary{font-size:0.88rem;line-height:1.72;color:var(--ink-soft);margin:0;}
+  .summary b{color:var(--ink);font-weight:700;}
+
+  .job{margin-bottom:22px;}
+  .job:last-child{margin-bottom:0;}
+  .job-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 16px;}
+  .job-head h3{font-size:1rem;font-weight:700;margin:0;color:var(--ink);}
+  .job-when{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--ink-faint);white-space:nowrap;}
+  .job-sub{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 16px;margin:3px 0 10px;}
+  .job-org{font-size:0.83rem;color:var(--accent);font-weight:700;}
+  .job-role{font-family:'IBM Plex Mono',monospace;font-size:0.71rem;color:var(--ink-faint);}
+  ol.duties{margin:0;padding-left:1.35em;display:flex;flex-direction:column;gap:7px;}
+  ol.duties li{font-size:0.85rem;line-height:1.62;color:var(--ink);padding-left:0.15em;}
+  ol.duties li b{font-weight:700;}
+  ol.duties li::marker{color:var(--accent);font-family:'IBM Plex Mono',monospace;font-size:0.8rem;}
+
+  .metrics{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
+  .metric{
+    font-family:'IBM Plex Mono',monospace;font-size:0.69rem;
+    border:1px solid var(--line);border-left:2px solid var(--accent);
+    color:var(--ink-soft);padding:4px 9px;white-space:nowrap;
+  }
+  .metric b{color:var(--ink);font-weight:600;}
+
+  .edu{margin-bottom:14px;}
+  .edu:last-child{margin-bottom:0;}
+  .edu-note{font-size:0.82rem;color:var(--ink-soft);line-height:1.6;margin:5px 0 0;}
+
+  footer{
+    padding:14px 40px 20px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+    font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--ink-faint);
+  }
+
+  @media print{
+    body{background:#fff;}
+    .doc{border:none;max-width:none;}
+    .job,.edu{break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+
+<div class="doc">
+
+  <header class="band">
+    <div class="band-left">
+      <div class="monogram">HJ</div>
+      <div>
+        <h1>HAN JUNGWOOK</h1>
+        <p class="target">Product Owner &amp; Backend Engineer</p>
+        <p class="tagline">Regulated-Domain Deployment · Cross-Border Sourcing &amp; Logistics</p>
+      </div>
+    </div>
+    <div class="band-contact">
+      <a href="mailto:mysun1034@gmail.com">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg>
+        mysun1034@gmail.com
+      </a>
+      <span>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1116 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Busan · Seoul, South Korea
+      </span>
+      <a href="https://github.com/mysun1034-cell" target="_blank" rel="noopener">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20 15 15 0 010-20z"/></svg>
+        github.com/mysun1034-cell
+      </a>
+    </div>
+  </header>
+
+  <div class="body">
+
+    <aside class="side">
+
+      <section>
+        <h2 class="sec">Core Skills</h2>
+        <div class="skill">
+          <span class="skill-name">Regulated-Domain Deployment</span>
+          <div class="bar" role="img" aria-label="9 of 10"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+        </div>
+        <div class="skill">
+          <span class="skill-name">Backend &amp; API Architecture</span>
+          <div class="bar" role="img" aria-label="8 of 10"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+        </div>
+        <div class="skill">
+          <span class="skill-name">Stakeholder &amp; Vendor Negotiation</span>
+          <div class="bar" role="img" aria-label="9 of 10"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+        </div>
+        <div class="skill">
+          <span class="skill-name">Import Logistics &amp; Customs</span>
+          <div class="bar" role="img" aria-label="8 of 10"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+        </div>
+        <div class="skill">
+          <span class="skill-name">Structuring Messy Domains</span>
+          <div class="bar" role="img" aria-label="8 of 10"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+        </div>
+        <div class="skill">
+          <span class="skill-name">Data Integration &amp; Analysis</span>
+          <div class="bar" role="img" aria-label="7 of 10"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="skill">
+          <span class="skill-name">LLM / RAG Integration</span>
+          <div class="bar" role="img" aria-label="7 of 10"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="sec">Strengths</h2>
+        <div class="pills">
+          <span class="pill">Ambiguity Tolerance</span>
+          <span class="pill">End-to-End Ownership</span>
+          <span class="pill">Regulatory Rigor</span>
+          <span class="pill">Cross-Cultural Fluency</span>
+          <span class="pill">Written Discipline</span>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="sec">Languages</h2>
+        <div class="langs">
+          <div class="lang">
+            <svg class="donut" viewBox="0 0 64 64" role="img" aria-label="Korean, native">
+              <circle cx="32" cy="32" r="26" fill="none" stroke="var(--track)" stroke-width="7"/>
+              <circle cx="32" cy="32" r="26" fill="none" stroke="var(--accent)" stroke-width="7" stroke-dasharray="163.4 999" transform="rotate(-90 32 32)"/>
+            </svg>
+            <span class="lang-name">Korean</span>
+            <span class="lang-note">Native</span>
+          </div>
+          <div class="lang">
+            <svg class="donut" viewBox="0 0 64 64" role="img" aria-label="English, professional working proficiency">
+              <circle cx="32" cy="32" r="26" fill="none" stroke="var(--track)" stroke-width="7"/>
+              <circle cx="32" cy="32" r="26" fill="none" stroke="var(--accent)" stroke-width="7" stroke-dasharray="152 999" transform="rotate(-90 32 32)"/>
+            </svg>
+            <span class="lang-name">English</span>
+            <span class="lang-note">TOEIC 980</span>
+          </div>
+          <div class="lang">
+            <svg class="donut" viewBox="0 0 64 64" role="img" aria-label="Spanish, basic">
+              <circle cx="32" cy="32" r="26" fill="none" stroke="var(--track)" stroke-width="7"/>
+              <circle cx="32" cy="32" r="26" fill="none" stroke="var(--accent)" stroke-width="7" stroke-dasharray="41 999" transform="rotate(-90 32 32)"/>
+            </svg>
+            <span class="lang-name">Spanish</span>
+            <span class="lang-note">Basic</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="sec">Certifications</h2>
+        <div class="fact">
+          <span class="fact-title">Aviation English Proficiency</span>
+          <span class="fact-meta">ICAO Level 5 (Extended)</span>
+        </div>
+        <div class="fact">
+          <span class="fact-title">Aeronautical Radio Operator</span>
+          <span class="fact-meta">National certification, Korea</span>
+        </div>
+        <div class="fact">
+          <span class="fact-title">TOEIC 980 / 990</span>
+          <span class="fact-meta">LC 495 · RC 485 · Sep 2024</span>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="sec">Abroad &amp; Service</h2>
+        <div class="fact">
+          <span class="fact-title">Sanford, Florida · USA</span>
+          <span class="fact-meta">Acron Aviation Academy · Oct 2025 – Mar 2026</span>
+        </div>
+        <div class="fact">
+          <span class="fact-title">Philippines</span>
+          <span class="fact-meta">St. Lino Science High School · 2013 – 2018</span>
+        </div>
+        <div class="fact">
+          <span class="fact-title">Republic of Korea Air Force</span>
+          <span class="fact-meta">Administration · service completed</span>
+        </div>
+      </section>
+
+    </aside>
+
+    <main class="main">
+
+      <section>
+        <h2 class="sec">Professional Summary</h2>
+        <p class="summary">Founding member of a Korean venture who started in overseas sourcing and import logistics and went on to build production software — someone who <b>writes code, negotiates with suppliers, and turns regulatory requirements into working systems in the same week</b>. Designed and built the backends of a long-term-care insurance ERP and a children's English-learning platform, studying the law each product had to satisfy — statutory billing rules, under-14 guardian consent, AI data-retention limits — and building it into the design; currently negotiating a Zero Data Retention agreement with OpenAI. Comfortable working across borders without instructions: five years of secondary school in the Philippines, and direct coordination with manufacturers, freight forwarders, customs and couriers on every inbound shipment.</p>
+      </section>
+
+      <section>
+        <h2 class="sec">Work Experience</h2>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>Product Owner &amp; Backend Engineer</h3>
+            <span class="job-when">Jul 2026 – Present</span>
+          </div>
+          <div class="job-sub">
+            <span class="job-org">EDENING — AI English-Learning Platform for Children</span>
+            <span class="job-role">Launch preparation</span>
+          </div>
+          <ol class="duties">
+            <li>Own the path from product definition to live deployment: learning architecture, requirements, API contract, backend implementation, and the legal gates that must clear before a real child can use the product.</li>
+            <li>Built the Spring Boot backend — 92 REST controllers against a 25,660-line OpenAPI contract — including server-side session, progress and completion-state logic that defends against duplicate submissions and out-of-order learning bypasses.</li>
+            <li>Joined as backend owner, then <b>absorbed frontend, content authoring and curriculum design</b> when the platform's other engineer moved to different duties — closing the gap instead of letting the product stall.</li>
+            <li>Determined that OpenAI's direct data-processing agreement is unavailable self-serve in Korea, and rerouted the entire child-voice pipeline to Azure Speech and Azure OpenAI — a provider and architecture decision forced by regulation, not preference.</li>
+            <li>Negotiating Zero Data Retention approval with OpenAI by meeting and email; it is the precondition for opening LLM features to users under 14 under Korean privacy law.</li>
+            <li>Drafted the privacy policy, terms of service, refund policy, youth-protection policy and the under-14 guardian-consent requirement document; ran external counsel inquiries and regional Office of Education questions through a seven-decision executive approval gate.</li>
+            <li>Maintain the engineering decision record — 561 logged decisions with stated rationale — as the single source of truth for a two-person team working alongside AI coding agents.</li>
+          </ol>
+          <div class="metrics">
+            <span class="metric"><b>92</b> controllers</span>
+            <span class="metric"><b>961</b> test files</span>
+            <span class="metric"><b>25,660</b>-line API contract</span>
+            <span class="metric"><b>561</b> decisions logged</span>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>Domain Analyst &amp; Backend Engineer</h3>
+            <span class="job-when">May 2026 – Present</span>
+          </div>
+          <div class="job-sub">
+            <span class="job-org">EdenCare — Long-Term-Care Insurance ERP</span>
+            <span class="job-role">MVP · commercialization prep</span>
+          </div>
+          <ol class="duties">
+            <li>Reverse-engineered the operational workflows of five incumbent ERP vendors, then synthesized the composite requirement set — beneficiaries, staff, home visits, claims, payroll and accounting — into a phased build plan.</li>
+            <li>Sole author of 99% of 1,059 commits: 85 FastAPI routers, 75 SQLAlchemy models and 115+ service modules on a multi-tenant architecture where every query is organization-scoped to prevent cross-facility data leakage.</li>
+            <li>Implemented statutory claim calculation to the letter of Korean long-term-care insurance regulation, including integer-won rounding per official billing notice 60128, under a standing rule that <b>no legally-defined constant ships without a cited source</b>.</li>
+            <li>Grew the regression suite to 1,437 tests with local/CI parity, and tracked 265 individually-numbered defects to closure rather than to a summary.</li>
+            <li>Built the decision-log, verification-gate and defect-registry system this project runs on, then ported the same governance into the EDENING team — one engineering discipline now shared across both products.</li>
+          </ol>
+          <div class="metrics">
+            <span class="metric"><b>85</b> API modules</span>
+            <span class="metric"><b>1,437</b> tests</span>
+            <span class="metric"><b>265</b> defects tracked</span>
+            <span class="metric"><b>99%</b> sole authorship</span>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>Founding Member · Registered Director</h3>
+            <span class="job-when">2022 – Present</span>
+          </div>
+          <div class="job-sub">
+            <span class="job-org">Seedening Inc.</span>
+            <span class="job-role">Sourcing · import logistics · certification · 10% equity</span>
+          </div>
+          <ol class="duties">
+            <li>Sole point of contact with Chinese manufacturers, negotiating pricing, trade terms, after-sales obligations and distribution rights in English.</li>
+            <li>Ran every inbound shipment to the company's Korean factory end to end — coordinating manufacturers, freight forwarders, customs and couriers directly — supporting the build-out of the company's first smart mirrors, smart tables and interactive systems.</li>
+            <li>Owned KC certification end to end — electrical safety and electromagnetic compatibility — clearing the regulatory path for imported hardware to enter the Korean market.</li>
+            <li>Researched the interactive-systems market and competing products to decide which lines the company sourced and adopted.</li>
+          </ol>
+        </article>
+      </section>
+
+      <section>
+        <h2 class="sec">Training &amp; Instruction</h2>
+        <article class="job">
+          <div class="job-head">
+            <h3>FTD Teaching Assistant</h3>
+            <span class="job-when">2024 – 2025</span>
+          </div>
+          <div class="job-sub">
+            <span class="job-org">Korea Aerospace University Flight Training Center</span>
+            <span class="job-role">Instruction support</span>
+          </div>
+          <ol class="duties">
+            <li>Supported instructors in flight-course sessions run on flight training devices.</li>
+            <li>Carried the role alongside Seedening work, English study and flight-training preparation.</li>
+          </ol>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>English Instructor &amp; Private Tutor</h3>
+            <span class="job-when">2019 – 2024 · 3 yr 2 mo</span>
+          </div>
+          <div class="job-sub">
+            <span class="job-org">Insight Academy · Private practice</span>
+            <span class="job-role">Busan, Korea</span>
+          </div>
+          <ol class="duties">
+            <li>Taught project-based discussion and writing classes to elementary students entirely in English, and handled academy administration alongside instruction.</li>
+            <li>Tutored secondary students and working adults in conversation, grammar and test preparation; all three private students reached TOEIC scores in the high 900s.</li>
+          </ol>
+        </article>
+      </section>
+
+      <section>
+        <h2 class="sec">Education</h2>
+        <div class="edu">
+          <div class="job-head">
+            <h3>Korea Aerospace University</h3>
+            <span class="job-when">2019 – Aug 2027 (expected)</span>
+          </div>
+          <div class="job-sub">
+            <span class="job-org">B.S. Flight Operations · 4th year</span>
+            <span class="job-role">GPA 3.7 / 4.5</span>
+          </div>
+        </div>
+        <div class="edu">
+          <div class="job-head">
+            <h3>Generative AI Enterprise Solution Development</h3>
+            <span class="job-when">Apr – Oct 2026</span>
+          </div>
+          <div class="job-sub">
+            <span class="job-org">Busan IT Industry Promotion Agency · Busan Venture Business Association</span>
+            <span class="job-role">In progress</span>
+          </div>
+          <p class="edu-note">Python and SQL, data analysis, LLM API integration, RAG and small-language-model services, Spring AI backends, closing with a team-built enterprise solution — a pet skin-image analysis assistant, where I built the Streamlit service layer and model-inference integration.</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer>
+    <span>Han Jungwook</span>
+    <span>Updated 2026-09-10</span>
+  </footer>
+</div>
+
+</body>
+</html>
