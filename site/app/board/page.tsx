@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import type { Session, SupabaseClient } from "@supabase/supabase-js";
 import { getSupabase } from "@/lib/supabase";
 import {
@@ -29,6 +29,19 @@ type BoardData = {
 
 type WriteResult = { error: { message: string } | null };
 
+// 로그인이나 토큰 갱신 직후 잠깐 동안 Supabase가 새 토큰을 "JWT issued at future"로 거절한다.
+// 서버끼리의 시계 차이 때문이라 기다리면 풀리므로, 이 오류일 때만 잠시 뒤 다시 시도한다.
+const SKEW_RETRY_MS = 5000;
+const SKEW_RETRY_LIMIT = 30;
+
+function isClockSkew(message: string) {
+  return /issued at future/i.test(message);
+}
+
+function wait(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 function Shell({ children }: { children: ReactNode }) {
   return <main className="wrap narrow">{children}</main>;
 }
@@ -39,7 +52,13 @@ export default function BoardPage() {
   const [authReady, setAuthReady] = useState(false);
   const [data, setData] = useState<BoardData | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [waiting, setWaiting] = useState(false);
   const userId = session?.user.id ?? null;
+  const activeUser = useRef<string | null>(null);
+
+  useEffect(() => {
+    activeUser.current = userId;
+  }, [userId]);
 
   useEffect(() => {
     const client = getSupabase();
@@ -57,34 +76,44 @@ export default function BoardPage() {
   const load = useCallback(async () => {
     if (!supabase || !userId) return;
     const since = dayKey(addDays(today(), -180));
-    const [plan, tracks, tasks, checkpoints, daily, questions] = await Promise.all([
-      supabase.from("plans").select("goal, start_date, manager_note, manager_note_at").maybeSingle(),
-      supabase.from("tracks").select("id, sort, name, category, start_week, end_week, cadence").order("sort"),
-      supabase
-        .from("tasks")
-        .select("id, week_key, seq, track_id, checkpoint_id, title, detail, done, done_at")
-        .order("seq"),
-      supabase
-        .from("checkpoints")
-        .select("id, sort, week, due_date, when_label, title, criteria, if_fail, status")
-        .order("sort"),
-      supabase.from("daily_logs").select("day, practice, english, review").gte("day", since),
-      supabase.from("questions").select("id, sort, prompt, answer, answered_at").order("sort"),
-    ]);
-    const failed = [plan, tracks, tasks, checkpoints, daily, questions].find((r) => r.error);
-    if (failed?.error) {
-      setError(`불러오지 못했습니다: ${failed.error.message}`);
+    for (let attempt = 0; ; attempt += 1) {
+      const [plan, tracks, tasks, checkpoints, daily, questions] = await Promise.all([
+        supabase.from("plans").select("goal, start_date, manager_note, manager_note_at").maybeSingle(),
+        supabase.from("tracks").select("id, sort, name, category, start_week, end_week, cadence").order("sort"),
+        supabase
+          .from("tasks")
+          .select("id, week_key, seq, track_id, checkpoint_id, title, detail, done, done_at")
+          .order("seq"),
+        supabase
+          .from("checkpoints")
+          .select("id, sort, week, due_date, when_label, title, criteria, if_fail, status")
+          .order("sort"),
+        supabase.from("daily_logs").select("day, practice, english, review").gte("day", since),
+        supabase.from("questions").select("id, sort, prompt, answer, answered_at").order("sort"),
+      ]);
+      if (activeUser.current !== userId) return;
+      const failed = [plan, tracks, tasks, checkpoints, daily, questions].find((r) => r.error);
+      if (failed?.error && isClockSkew(failed.error.message) && attempt < SKEW_RETRY_LIMIT) {
+        setWaiting(true);
+        await wait(SKEW_RETRY_MS);
+        continue;
+      }
+      setWaiting(false);
+      if (failed?.error) {
+        setError(`불러오지 못했습니다: ${failed.error.message}`);
+        return;
+      }
+      setError(null);
+      setData({
+        plan: (plan.data as Plan | null) ?? null,
+        tracks: (tracks.data ?? []) as Track[],
+        tasks: (tasks.data ?? []) as Task[],
+        checkpoints: (checkpoints.data ?? []) as Checkpoint[],
+        daily: (daily.data ?? []) as DailyLog[],
+        questions: (questions.data ?? []) as Question[],
+      });
       return;
     }
-    setError(null);
-    setData({
-      plan: (plan.data as Plan | null) ?? null,
-      tracks: (tracks.data ?? []) as Track[],
-      tasks: (tasks.data ?? []) as Task[],
-      checkpoints: (checkpoints.data ?? []) as Checkpoint[],
-      daily: (daily.data ?? []) as DailyLog[],
-      questions: (questions.data ?? []) as Question[],
-    });
   }, [supabase, userId]);
 
   useEffect(() => {
@@ -92,15 +121,21 @@ export default function BoardPage() {
   }, [load]);
 
   const save = useCallback(
-    async (request: PromiseLike<WriteResult>): Promise<boolean> => {
-      const { error: failure } = await request;
-      if (failure) {
+    async (send: () => PromiseLike<WriteResult>): Promise<boolean> => {
+      for (let attempt = 0; ; attempt += 1) {
+        const { error: failure } = await send();
+        if (!failure) {
+          setError(null);
+          return true;
+        }
+        if (isClockSkew(failure.message) && attempt < SKEW_RETRY_LIMIT) {
+          await wait(SKEW_RETRY_MS);
+          continue;
+        }
         setError(`저장하지 못했습니다: ${failure.message}`);
         await load();
         return false;
       }
-      setError(null);
-      return true;
     },
     [load],
   );
@@ -148,7 +183,7 @@ export default function BoardPage() {
             {error}
           </p>
         ) : (
-          <p className="muted">계획을 불러오는 중…</p>
+          <p className="muted">{waiting ? "로그인을 확인하는 중입니다. 잠시만 기다려 주세요." : "계획을 불러오는 중…"}</p>
         )}
       </Shell>
     );
@@ -178,7 +213,7 @@ export default function BoardPage() {
   function toggleTask(id: string, done: boolean) {
     const doneAt = done ? dayKey(today()) : null;
     setData((d) => d && { ...d, tasks: d.tasks.map((t) => (t.id === id ? { ...t, done, done_at: doneAt } : t)) });
-    void save(client.from("tasks").update({ done, done_at: doneAt }).eq("id", id));
+    void save(() => client.from("tasks").update({ done, done_at: doneAt }).eq("id", id));
   }
 
   function toggleDaily(field: DailyField, value: boolean) {
@@ -188,18 +223,22 @@ export default function BoardPage() {
     };
     next[field] = value;
     setData((d) => d && { ...d, daily: [...d.daily.filter((l) => l.day !== day), next] });
-    void save(client.from("daily_logs").upsert({ user_id: uid, ...next, updated_at: new Date().toISOString() }));
+    void save(() =>
+      client.from("daily_logs").upsert({ user_id: uid, ...next, updated_at: new Date().toISOString() }),
+    );
   }
 
   function setCheckpoint(id: string, status: CheckpointStatus) {
     setData((d) => d && { ...d, checkpoints: d.checkpoints.map((c) => (c.id === id ? { ...c, status } : c)) });
-    void save(client.from("checkpoints").update({ status }).eq("id", id));
+    void save(() => client.from("checkpoints").update({ status }).eq("id", id));
   }
 
   async function answer(id: string, text: string): Promise<boolean> {
     const value = text || null;
     const answeredAt = text ? dayKey(today()) : null;
-    const ok = await save(client.from("questions").update({ answer: value, answered_at: answeredAt }).eq("id", id));
+    const ok = await save(() =>
+      client.from("questions").update({ answer: value, answered_at: answeredAt }).eq("id", id),
+    );
     if (ok) {
       setData(
         (d) =>

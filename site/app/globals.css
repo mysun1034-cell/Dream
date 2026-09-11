@@ -956,6 +956,276 @@ ul.tasks {
   }
 }
 
+/* ---------- study room ---------- */
+a.ghost.as-button {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.study-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.study-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: inherit;
+  text-decoration: none;
+  min-width: 0;
+}
+
+.study-card:hover {
+  border-color: var(--accent);
+}
+
+.study-card .sc-count {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+}
+
+.study-card .sc-name {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.study-card .sc-blurb {
+  font-size: 0.84rem;
+  color: var(--soft);
+}
+
+section[aria-labelledby] + section[aria-labelledby] {
+  margin-top: 4px;
+}
+
+/* markdown body (공부방 문서) */
+.md-scroll {
+  overflow-x: auto;
+}
+
+.md-body {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--ink);
+}
+
+.md-body h1,
+.md-body h2,
+.md-body h3 {
+  font-family: "Noto Serif KR", Georgia, serif;
+  color: var(--navy);
+  line-height: 1.35;
+  margin: 1.4em 0 0.5em;
+}
+
+.md-body h1 {
+  font-size: 1.4rem;
+}
+.md-body h2 {
+  font-size: 1.18rem;
+}
+.md-body h3 {
+  font-size: 1.02rem;
+}
+
+.md-body p {
+  margin: 0 0 0.9em;
+}
+
+.md-body ul,
+.md-body ol {
+  margin: 0 0 0.9em;
+  padding-left: 1.3em;
+}
+
+.md-body li {
+  margin: 0.2em 0;
+}
+
+.md-body li > p {
+  margin: 0;
+}
+
+.md-body code {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.85em;
+  background: var(--quiet);
+  padding: 1px 5px;
+}
+
+.md-body pre {
+  background: var(--quiet);
+  border: 1px solid var(--line);
+  padding: 12px 14px;
+  overflow-x: auto;
+  margin: 0 0 1em;
+}
+
+.md-body pre code {
+  background: none;
+  padding: 0;
+}
+
+.md-body blockquote {
+  margin: 0 0 1em;
+  padding: 4px 14px;
+  border-left: 3px solid var(--accent);
+  color: var(--soft);
+  background: var(--accent-soft);
+}
+
+.md-body table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 0 1em;
+  font-size: 0.88rem;
+}
+
+.md-body th,
+.md-body td {
+  border: 1px solid var(--line);
+  padding: 6px 10px;
+  text-align: left;
+}
+
+.md-body th {
+  background: var(--quiet);
+  font-weight: 700;
+}
+
+.md-body hr {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 1.6em 0;
+}
+
+.md-body a {
+  color: var(--accent);
+}
+
+.md-body strong {
+  color: var(--navy);
+}
+
+/* practice tools */
+.practice {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.practice-editor {
+  width: 100%;
+  min-height: 140px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  background: var(--quiet);
+  color: var(--ink);
+  resize: vertical;
+  tab-size: 2;
+}
+
+.practice-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.practice-status {
+  font-size: 0.8rem;
+  color: var(--faint);
+}
+
+.practice-output {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.84rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: var(--quiet);
+  border: 1px solid var(--line);
+  padding: 12px 14px;
+  margin: 0;
+  min-height: 40px;
+}
+
+.result-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+}
+
+.result-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.84rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.result-table th,
+.result-table td {
+  border-bottom: 1px solid var(--line);
+  padding: 6px 10px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.result-table th {
+  background: var(--quiet);
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 600;
+  font-size: 0.76rem;
+}
+
+.problem-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.problem-item {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  font-size: 0.86rem;
+}
+
+.problem-item .pi-title {
+  font-weight: 500;
+}
+
+.problem-item .pi-week {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  color: var(--faint);
+  margin-right: 6px;
+}
+
+@media (max-width: 900px) {
+  .study-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .study-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .meter i {
     transition: none;

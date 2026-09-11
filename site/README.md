@@ -8,6 +8,7 @@
 | `/` | 소개와 이력서 바로가기 | 누구나 |
 | `/resume/ko` · `/resume/en` | 한국어 · 영문 이력서 (전화번호 없음) | 누구나 |
 | `/board` | 학습 보드 | 로그인한 본인만 |
+| `/study` | 공부방 — 개념 설명 + SQL·Python 연습장 | 로그인한 본인만 |
 
 ## 로컬에서 실행
 
@@ -31,7 +32,8 @@ http://localhost:3100 에서 열립니다. Supabase를 연결하기 전에도 �
 3. Authentication 설정에서 새 사용자 가입 허용(Allow new users to sign up)을 끈다. 지금은 본인만 쓰기 때문이다.
 4. Authentication → Users → Add user에서 본인 이메일과 비밀번호로 계정을 만든다(Auto Confirm 체크).
 5. SQL Editor에서 `supabase/seed.local.sql`을 실행해 claude.ai 학습 보드의 계획과 체크 상태를 옮긴다. 이 파일은 개인 데이터라 레포에 없다. 옮기기 직전에 보드를 JSON 폴더로 내보내고 `node scripts/board-to-seed.mjs <내보내기 폴더> <로그인 이메일>`로 새로 만든다.
-6. Project Settings의 API 메뉴에서 프로젝트 URL과 publishable 키를 확인한다.
+6. SQL Editor에서 `supabase/seed.study.local.sql`을 실행해 공부방 개념 문서를 채운다. 이것도 개인 데이터라 레포에 없다. `node scripts/study-to-seed.mjs <로그인 이메일>`로 새로 만든다 — Dream 레포 루트(이 폴더의 한 단계 위)에서 정해둔 문서를 읽어온다. 파일이 커서(수십 KB) SQL Editor에 직접 열어 전체 복사해 붙여넣는 편이 자동 입력보다 안전하다.
+7. Project Settings의 API 메뉴에서 프로젝트 URL과 publishable 키를 확인한다.
 
 ### 2. 로컬에서 로그인 확인
 

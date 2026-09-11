@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import {
   TOTAL_WEEKS,
@@ -134,6 +135,9 @@ export default function BoardView(props: Props) {
         </div>
         <div className="top-side">
           <span className="now-pill">{nowLabel}</span>
+          <Link className="ghost as-button" href="/study">
+            공부방
+          </Link>
           <button type="button" className="ghost" onClick={props.onSignOut}>
             로그아웃
           </button>

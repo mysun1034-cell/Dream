@@ -124,6 +124,28 @@ create policy "own rows" on public.questions
   using (user_id = (select auth.uid()))
   with check (user_id = (select auth.uid()));
 
+-- 공부방 자료: Dream 저장소의 개념 설명 문서를 옮겨 담는다.
+-- 원문은 공개 레포에 올리지 않고(개인 학습 메모라서) 여기 DB에만 둔다.
+create table if not exists public.study_docs (
+  user_id uuid not null default auth.uid() references auth.users (id) on delete cascade,
+  id text not null,
+  category text not null,
+  sort int not null,
+  title text not null,
+  source_path text,
+  body text not null,
+  updated_at timestamptz not null default now(),
+  primary key (user_id, id)
+);
+
+alter table public.study_docs enable row level security;
+
+drop policy if exists "own rows" on public.study_docs;
+create policy "own rows" on public.study_docs
+  for all to authenticated
+  using (user_id = (select auth.uid()))
+  with check (user_id = (select auth.uid()));
+
 grant select, insert, update, delete
-  on public.plans, public.tracks, public.checkpoints, public.tasks, public.daily_logs, public.questions
+  on public.plans, public.tracks, public.checkpoints, public.tasks, public.daily_logs, public.questions, public.study_docs
   to authenticated;
