@@ -18,6 +18,23 @@ const output = join(siteRoot, "supabase", "seed.study.local.sql");
 
 // { category, sort, title, path } — path 는 Dream 레포 루트 기준.
 const DOCS = [
+  { category: "palantir", sort: 0, title: "00 · 학습의 출발점", path: "palantir/00_orientation.md" },
+  { category: "palantir", sort: 1, title: "01 · 40주 교육과정과 체크리스트", path: "palantir/01_curriculum_40w.md" },
+  { category: "palantir", sort: 2, title: "02 · 실습 환경과 공통 데이터 사전", path: "palantir/02_lab_environment.md" },
+  { category: "palantir", sort: 3, title: "03 · Python 기본", path: "palantir/03_python_basic.md" },
+  { category: "palantir", sort: 4, title: "04 · SQL 기본", path: "palantir/04_sql_basic.md" },
+  { category: "palantir", sort: 5, title: "05 · Python 중급", path: "palantir/05_python_intermediate.md" },
+  { category: "palantir", sort: 6, title: "06 · SQL 중급", path: "palantir/06_sql_intermediate.md" },
+  { category: "palantir", sort: 7, title: "07 · Python 심화", path: "palantir/07_python_advanced.md" },
+  { category: "palantir", sort: 8, title: "08 · SQL 심화", path: "palantir/08_sql_advanced.md" },
+  { category: "palantir", sort: 9, title: "09 · 연습문제 120개: 정답과 해설", path: "palantir/09_exercises_120.md" },
+  { category: "palantir", sort: 10, title: "10 · 실전 프로젝트 6종과 포트폴리오", path: "palantir/10_projects.md" },
+  { category: "palantir", sort: 11, title: "11 · DS·FDSE 문제 분해와 모의 면접", path: "palantir/11_mock_interview.md" },
+  { category: "palantir", sort: 12, title: "12 · Foundry로 연결하는 사고", path: "palantir/12_foundry_bridge.md" },
+  { category: "palantir", sort: 13, title: "13 · 용어 100개·오답 패턴·복습 카드", path: "palantir/13_glossary.md" },
+  { category: "palantir", sort: 14, title: "14 · 출처·버전·검증 보고서", path: "palantir/14_verification_report.md" },
+  { category: "palantir", sort: 15, title: "15 · 실습 코드 부록", path: "palantir/15_appendix_code.md" },
+
   { category: "sql", sort: 1, title: "SQL · 데이터 모델링 트랙", path: "career/SQL_data_modeling_track.md" },
   { category: "sql", sort: 2, title: "sql/ 폴더 안내", path: "sql/README.md" },
   { category: "sql", sort: 3, title: "EdenCare ERD (초안)", path: "sql/models/edencare/erd.md" },
