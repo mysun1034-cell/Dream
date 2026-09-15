@@ -303,18 +303,18 @@
           </div>
           <ol class="duties">
             <li>Own the path from product definition to live deployment: learning architecture, requirements, API contract, backend implementation, and the legal gates that must clear before a real child can use the product.</li>
-            <li>Built the Spring Boot backend — 92 REST controllers against a 25,660-line OpenAPI contract — including server-side session, progress and completion-state logic that defends against duplicate submissions and out-of-order learning bypasses.</li>
+            <li>Built the Spring Boot backend — implemented 126 of its 151 REST controllers, with 391 API paths governed by an OpenAPI contract — including server-side session, progress and completion-state logic that defends against duplicate submissions and out-of-order learning bypasses.</li>
             <li>Deploy and operate the backend on AWS Seoul myself — images to ECR, the service on ECS, Redis on ElastiCache, secrets held in Secrets Manager rather than the repository. When CloudFormation stalled polling ElastiCache and never reached ECS, I traced it in CloudTrail, identified the cause, and rebuilt the deploy path to register ECS task definitions directly.</li>
             <li>Joined as backend owner, then <b>absorbed frontend, content authoring and curriculum design</b> when the platform's other engineer moved to different duties — closing the gap instead of letting the product stall.</li>
             <li>Determined that OpenAI's direct data-processing agreement is unavailable self-serve in Korea, and rerouted the entire child-voice pipeline to Azure Speech and Azure OpenAI — a provider and architecture decision forced by regulation, not preference.</li>
             <li>Drafted the privacy policy, terms of service, refund policy, youth-protection policy and the under-14 guardian-consent requirement document; ran external counsel inquiries and regional Office of Education questions through a seven-decision executive approval gate.</li>
-            <li>Maintain the engineering decision record — 561 logged decisions with stated rationale — as the single source of truth for a two-person team working alongside AI coding agents.</li>
+            <li>Maintain the engineering decision record — 711 logged decisions with stated rationale — as the single source of truth for a two-person team working alongside AI coding agents.</li>
           </ol>
           <div class="metrics">
-            <span class="metric"><b>92</b> controllers</span>
-            <span class="metric"><b>961</b> test files</span>
-            <span class="metric"><b>25,660</b>-line API contract</span>
-            <span class="metric"><b>561</b> decisions logged</span>
+            <span class="metric"><b>151</b> controllers</span>
+            <span class="metric"><b>391</b> API paths</span>
+            <span class="metric"><b>1,816</b> test files</span>
+            <span class="metric"><b>711</b> decisions logged</span>
           </div>
         </article>
 
@@ -344,14 +344,14 @@
           </div>
           <ol class="duties">
             <li>Reverse-engineered the operational workflows of five incumbent ERP vendors, then synthesized the composite requirement set — beneficiaries, staff, home visits, claims, payroll and accounting — into a phased build plan.</li>
-            <li>Built the backend from 85 FastAPI routers, 75 SQLAlchemy models and 115+ service modules on a multi-tenant architecture where every query is organization-scoped to prevent cross-facility data leakage.</li>
-            <li>Implemented statutory claim calculation to the letter of Korean long-term-care insurance regulation, including integer-won rounding per official billing notice 60128, under a standing rule that <b>no legally-defined constant ships without a cited source</b>.</li>
-            <li>Grew the regression suite to 1,437 tests with local/CI parity, and tracked 265 individually-numbered defects to closure rather than to a summary.</li>
+            <li>Built the backend from 84 FastAPI routers, 75 SQLAlchemy models and 115+ service modules on a multi-tenant architecture where every query is organization-scoped to prevent cross-facility data leakage.</li>
+            <li>Implemented statutory claim calculation to the letter of Korean long-term-care insurance regulation — replacing Python's default banker's rounding with half-up rounding and applying billing notice 60128's rule of rounding listed amounts to the nearest 10 won — under a standing rule that <b>no legally-defined constant ships without a cited source</b>.</li>
+            <li>Grew the regression suite to 1,582 tests with local/CI parity, and tracked 265 individually-numbered defects to closure rather than to a summary.</li>
             <li>Built the decision-log, verification-gate and defect-registry system this project runs on, then ported the same governance into the EDENING team — one engineering discipline now shared across both products.</li>
           </ol>
           <div class="metrics">
-            <span class="metric"><b>85</b> API modules</span>
-            <span class="metric"><b>1,437</b> tests</span>
+            <span class="metric"><b>84</b> API modules</span>
+            <span class="metric"><b>1,582</b> tests</span>
             <span class="metric"><b>265</b> defects tracked</span>
             <span class="metric"><b>115+</b> service modules</span>
           </div>
