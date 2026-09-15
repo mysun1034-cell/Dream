@@ -286,7 +286,7 @@
 
       <section>
         <h2 class="sec">Professional Summary</h2>
-        <p class="summary">Founding member of a Korean venture who started in overseas sourcing and import logistics and went on to build production software — someone who <b>writes code, negotiates with suppliers, and turns regulatory requirements into working systems in the same week</b>. Designed and built the backends of a long-term-care insurance ERP and a children's English-learning platform, studying the law each product had to satisfy — statutory billing rules, under-14 guardian consent, AI data-retention limits — and building it into the design; currently negotiating a Zero Data Retention agreement with OpenAI. Comfortable working across borders without instructions: five years of secondary school in the Philippines, and direct coordination with manufacturers, freight forwarders, customs and couriers on every inbound shipment.</p>
+        <p class="summary">Founding member of a Korean venture who started in overseas sourcing and import logistics and went on to build production software — someone who <b>writes code, negotiates with suppliers, and turns regulatory requirements into working systems in the same week</b>. Designed and built the backends of a long-term-care insurance ERP and a children's English-learning platform, studying the law each product had to satisfy — statutory billing rules, under-14 guardian consent, AI data-retention limits — and building it into the design. Comfortable working across borders without instructions: five years of secondary school in the Philippines, and direct coordination with manufacturers, freight forwarders, customs and couriers on every inbound shipment.</p>
       </section>
 
       <section>
@@ -307,7 +307,6 @@
             <li>Deploy and operate the backend on AWS Seoul myself — images to ECR, the service on ECS, Redis on ElastiCache, secrets held in Secrets Manager rather than the repository. When CloudFormation stalled polling ElastiCache and never reached ECS, I traced it in CloudTrail, identified the cause, and rebuilt the deploy path to register ECS task definitions directly.</li>
             <li>Joined as backend owner, then <b>absorbed frontend, content authoring and curriculum design</b> when the platform's other engineer moved to different duties — closing the gap instead of letting the product stall.</li>
             <li>Determined that OpenAI's direct data-processing agreement is unavailable self-serve in Korea, and rerouted the entire child-voice pipeline to Azure Speech and Azure OpenAI — a provider and architecture decision forced by regulation, not preference.</li>
-            <li>Negotiating Zero Data Retention approval with OpenAI by meeting and email; it is the precondition for opening LLM features to users under 14 under Korean privacy law.</li>
             <li>Drafted the privacy policy, terms of service, refund policy, youth-protection policy and the under-14 guardian-consent requirement document; ran external counsel inquiries and regional Office of Education questions through a seven-decision executive approval gate.</li>
             <li>Maintain the engineering decision record — 561 logged decisions with stated rationale — as the single source of truth for a two-person team working alongside AI coding agents.</li>
           </ol>
@@ -321,16 +320,31 @@
 
         <article class="job">
           <div class="job-head">
+            <h3>Requirements Analyst &amp; Backend Engineer</h3>
+            <span class="job-when">Sep 2026 – Present</span>
+          </div>
+          <div class="job-sub">
+            <span class="job-org">Document Automation System — Busan Venture Business Association</span>
+            <span class="job-role">Training-program project · in build</span>
+          </div>
+          <ol class="duties">
+            <li>Stripped the long-term-care domain out of EdenCare, kept only the platform kernel, and turned it into the base for a system that automates the association's business-trip reports and expense resolutions.</li>
+            <li>Analyzed the association's real approval forms, chart of accounts and travel-expense rules, and turned them into requirements — approval chains that differ by document, and the fare and fuel-cost calculation rules.</li>
+          </ol>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
             <h3>Domain Analyst &amp; Backend Engineer</h3>
-            <span class="job-when">May 2026 – Present</span>
+            <span class="job-when">May 2026 – Sep 2026</span>
           </div>
           <div class="job-sub">
             <span class="job-org">EdenCare — Long-Term-Care Insurance ERP</span>
-            <span class="job-role">MVP · commercialization prep</span>
+            <span class="job-role">MVP built · pivoted to document automation</span>
           </div>
           <ol class="duties">
             <li>Reverse-engineered the operational workflows of five incumbent ERP vendors, then synthesized the composite requirement set — beneficiaries, staff, home visits, claims, payroll and accounting — into a phased build plan.</li>
-            <li>Sole author of 99% of 1,059 commits: 85 FastAPI routers, 75 SQLAlchemy models and 115+ service modules on a multi-tenant architecture where every query is organization-scoped to prevent cross-facility data leakage.</li>
+            <li>Built the backend from 85 FastAPI routers, 75 SQLAlchemy models and 115+ service modules on a multi-tenant architecture where every query is organization-scoped to prevent cross-facility data leakage.</li>
             <li>Implemented statutory claim calculation to the letter of Korean long-term-care insurance regulation, including integer-won rounding per official billing notice 60128, under a standing rule that <b>no legally-defined constant ships without a cited source</b>.</li>
             <li>Grew the regression suite to 1,437 tests with local/CI parity, and tracked 265 individually-numbered defects to closure rather than to a summary.</li>
             <li>Built the decision-log, verification-gate and defect-registry system this project runs on, then ported the same governance into the EDENING team — one engineering discipline now shared across both products.</li>
@@ -339,7 +353,7 @@
             <span class="metric"><b>85</b> API modules</span>
             <span class="metric"><b>1,437</b> tests</span>
             <span class="metric"><b>265</b> defects tracked</span>
-            <span class="metric"><b>99%</b> sole authorship</span>
+            <span class="metric"><b>115+</b> service modules</span>
           </div>
         </article>
 
