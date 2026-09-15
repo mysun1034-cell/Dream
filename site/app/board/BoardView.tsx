@@ -138,6 +138,9 @@ export default function BoardView(props: Props) {
           <Link className="ghost as-button" href="/study">
             공부방
           </Link>
+          <a className="ghost as-button" href="/resume/ko.html" target="_blank" rel="noopener noreferrer">
+            이력서
+          </a>
           <button type="button" className="ghost" onClick={props.onSignOut}>
             로그아웃
           </button>
